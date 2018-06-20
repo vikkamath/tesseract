@@ -1,0 +1,23 @@
+diff --git a/src/ccutil/unicharset.h b/src/ccutil/unicharset.h
+index f04b10f..d313689 100644
+--- a/src/ccutil/unicharset.h
++++ b/src/ccutil/unicharset.h
+@@ -501,14 +501,16 @@ class UNICHARSET {
+   // Return the isupper property of the given unichar.
+   bool get_isupper(UNICHAR_ID unichar_id) const {
+     if (INVALID_UNICHAR_ID == unichar_id) return false;
+-    ASSERT_HOST(contains_unichar_id(unichar_id));
++    // ASSERT_HOST(contains_unichar_id(unichar_id));
++    if (!contains_unichar_id(unichar_id)) return false;
+     return unichars[unichar_id].properties.isupper;
+   }
+ 
+   // Return the isdigit property of the given unichar.
+   bool get_isdigit(UNICHAR_ID unichar_id) const {
+     if (INVALID_UNICHAR_ID == unichar_id) return false;
+-    ASSERT_HOST(contains_unichar_id(unichar_id));
++    // ASSERT_HOST(contains_unichar_id(unichar_id));
++    if (!contains_unichar_id(unichar_id)) return false;
+     return unichars[unichar_id].properties.isdigit;
+   }
+ 
